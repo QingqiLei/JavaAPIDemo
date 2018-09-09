@@ -1,4 +1,5 @@
-package Introspection;
+package introspection;
+
 public class Config {
     private String username;
     private String password;
