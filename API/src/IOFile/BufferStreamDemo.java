@@ -1,10 +1,9 @@
 package IOFile;
 
-import java.awt.*;
 import java.io.*;
 
 public class BufferStreamDemo {
-    private static void byteWrite(File file) throws IOException {
+    private static void byteWrite(File file) throws IOException {  // there is a few differences between bufferedStream and not buffered stream
 
         OutputStream out = new FileOutputStream(file, true);
         BufferedOutputStream bos = new BufferedOutputStream(out);
