@@ -8,3 +8,4 @@ public class StreamDemo {
         stream.forEach((str)-> System.out.print(str+" "));
     }
 }
+
