@@ -2,17 +2,16 @@ package container;
 
 import org.junit.jupiter.api.Test;
 
-import java.net.SocketTimeoutException;
 import java.util.*;
 
-public class ListDemo {
+public class ListD {
 
     @Test
     public void vector() {
         Vector<String> v = new Vector<>();
-        v.add("1");
         v.add("2");
         v.add("3");
+        v.add("4");
         for (int i = 0; i < v.size(); i++) {
             System.out.print(v.get(i) + " ");
         }
