@@ -1,6 +1,5 @@
 package IOFile;
 
-import javax.swing.*;
 import java.io.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
@@ -10,7 +9,7 @@ import java.util.zip.ZipOutputStream;
 public class ZipD {
     /**
      * @param targetFile the file that is going to be compressed
-     * @throws IOException
+     * @throws IOException io
      */
     private static void compression(File targetFile) throws IOException {
         System.out.println("compressing...");
@@ -30,14 +29,15 @@ public class ZipD {
      * @param targetFile the file we want to compress
      * @param path       the relative path of the file we want to compress
      * @param bos        the stream we output the result
-     * @throws IOException
+     * @throws IOException io
      */
     private static void zip(ZipOutputStream zout, File targetFile, String path, BufferedOutputStream bos) throws IOException {
 
         if (targetFile.isDirectory()) {         // targetFile is a Directory, then get subfile, use zip method one by one
             File[] files = targetFile.listFiles();
-            if (files.length == 0) // the directory is empty
-                zout.putNextEntry(new ZipEntry(path = "/"));
+            if (files != null)
+                if (files.length == 0) // the directory is empty
+                    zout.putNextEntry(new ZipEntry(path = "/"));
             for (File f : files) // if the directory is empty, the files is empty
                 zip(zout, f, path + "/" + f.getName(), bos);  // deep first
 
@@ -46,7 +46,7 @@ public class ZipD {
             FileInputStream in = new FileInputStream(targetFile);
             BufferedInputStream bis = new BufferedInputStream(in);
             byte[] bytes = new byte[1024];
-            int len = -1;
+            int len;
 
             while ((len = bis.read(bytes)) != -1)
                 bos.write(bytes, 0, len);
@@ -57,15 +57,15 @@ public class ZipD {
     }
 
     /**
-     * @param targetFileName
+     * @param targetFileName the name of the file we want to decompress
      * @param parent         the parent directory
-     * @throws IOException
+     * @throws IOException io
      */
     private static void decompression(String targetFileName, String parent) throws IOException {
         System.out.println("Decompressing...");
         ZipInputStream zin = new ZipInputStream(new FileInputStream(targetFileName));
-        ZipEntry entry = null;
-        File file = null;
+        ZipEntry entry;
+        File file;
         //
         while ((entry = zin.getNextEntry()) != null && !entry.isDirectory()) {
             file = new File(parent, entry.getName());
@@ -97,8 +97,9 @@ public class ZipD {
         out.close();
 
         compression(file);
-        System.out.println("delete: "+f1.delete() + " " + file.delete());
+        System.out.println("delete: " + f1.delete() + " " + file.delete());
         decompression("11directory.zip", System.getProperty("user.dir"));
+
         System.err.println("there are two file in the user dir, check them!");
     }
 }
