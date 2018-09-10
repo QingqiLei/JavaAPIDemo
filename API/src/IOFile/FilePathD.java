@@ -2,9 +2,10 @@ package IOFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.*;
 import java.util.Arrays;
 
-public class FileD {
+public class FilePathD {
     public static void main(String[] args) throws IOException {
         File fi = new File("1.txt");
         System.out.println("whether 1.txt exist or not : "+fi.exists());
@@ -36,6 +37,25 @@ public class FileD {
 
         }
 
+        System.out.println("\r\n+++++++++++++++");
+        Path p1 = Paths.get(System.getProperty("user.dir"),"1.txt");
+        System.out.println("p1: "+p1); // get the absolute path
+        System.out.println("f2: "+f2.toPath()); // get the file name
 
+        Path p3 = FileSystems.getDefault().getPath(System.getProperty("user.dir"),"2.txt");
+        System.out.println(p3);
+
+        String info = "hello world +n";
+        Files.createFile(p1);
+        Files.createDirectories(p3);
+        Files.write(p1,info.getBytes(),StandardOpenOption.APPEND);
+        byte[] bytes = Files.readAllBytes(p1);
+        System.err.println(new String(bytes));
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("delete: "+Files.deleteIfExists(p3)+" "+Files.deleteIfExists(p1));
     }
 }
