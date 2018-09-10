@@ -3,7 +3,7 @@ package IOFile;
 import java.awt.*;
 import java.io.*;
 
-public class PrintStreamDemo {
+public class PrintStreamD {
     private static void charPrint(File file) throws IOException{
         Writer out = new FileWriter(file);
         // buffered
@@ -31,6 +31,5 @@ public class PrintStreamDemo {
         bytePrint(file);
         charPrint(file);
         file.delete();
-
     }
 }
