@@ -34,7 +34,6 @@ public class FilePathD {
 
         for(File f: files){
             System.out.print("endwith java: "+f.getName()+"|");
-
         }
 
         System.out.println("\r\n+++++++++++++++");
