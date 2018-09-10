@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 
-public class FileDemo {
+public class FileD {
     public static void main(String[] args) throws IOException {
         File fi = new File("1.txt");
         System.out.println("whether 1.txt exist or not : "+fi.exists());
