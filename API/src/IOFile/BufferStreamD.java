@@ -2,12 +2,13 @@ package IOFile;
 
 import java.io.*;
 
-public class BufferStreamDemo {
+public class BufferStreamD {
     private static void byteWrite(File file) throws IOException {  // there is a few differences between bufferedStream and not buffered stream
 
         OutputStream out = new FileOutputStream(file, true);
         BufferedOutputStream bos = new BufferedOutputStream(out);
-        bos.write("你好\r\n".getBytes());
+        bos.write("FileOutputStream\r\n".getBytes());
+        bos.write("BufferedOutputStream\r\n".getBytes());
         bos.close();
     }
 
@@ -34,9 +35,9 @@ public class BufferStreamDemo {
     private static void charWrite(File file) throws IOException{
         Writer write = new FileWriter(file,true);
         BufferedWriter bw = new BufferedWriter(write);
-        bw.write("h哈哈\r\n");
-        bw.write("h哈哈\r\n");
-        bw.close();
+        bw.write("FileWriter\r\n");
+        bw.write("BufferedWriter\r\n");
+//        bw.close(); // if this stream is not closed, then the file will not be deleted, and there is a flush() method in output stream, and flush(0 is included in close(), if close() or flush() is not implemented at the last time writing, the data will only in buffer, not in file,
     }
 
     public static void main(String[] args) throws IOException {
@@ -46,7 +47,7 @@ public class BufferStreamDemo {
         charWrite(file);
         byteReader(file);
         charRead(file);
-        file.delete();
+        System.out.println(file.delete());
     }
 
 
