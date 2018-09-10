@@ -2,7 +2,7 @@ package IOFile;
 
 import java.io.*;
 
-public class CharStreamDemo {
+public class CharStreamD {
     private static void out() throws IOException {
         File file = new File("1.txt");
         if (!file.exists()) file.createNewFile();
