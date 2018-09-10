@@ -3,7 +3,7 @@ package IOFile;
 import java.awt.*;
 import java.io.*;
 
-public class ByteStreamDemo {
+public class ByteStreamD {
     private static void out() throws IOException {
         File file = new File("1.txt");
         if (!file.exists()) file.createNewFile();
