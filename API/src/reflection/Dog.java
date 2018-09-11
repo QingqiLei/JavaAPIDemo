@@ -2,6 +2,7 @@ package reflection;
 
 public class Dog {
     private String name;
+    public int age;
 
     public String getName() {
         return name;
@@ -16,5 +17,15 @@ public class Dog {
     }
 
     public Dog() {
+    }
+
+    @Override
+    public String toString() {
+        return "Dog{" +
+                "name='" + name + '\'' +
+                '}';
+    }
+    private void privateMethod(){
+        System.out.println("privateMethod!");
     }
 }
