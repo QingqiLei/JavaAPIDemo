@@ -43,8 +43,4 @@ public class GenericD {
         String[] strs = func(arrays,0,1);
         System.out.println(Arrays.toString(strs));
     }
-
-
-
-
 }
