@@ -9,13 +9,13 @@ public class GenericD {
     public void test1() {
         Node<Number> n1 = new Node<>(20);
         Node<Integer> n2 = new Node<>(10);
+
+
         getData(n1);
 //    getData(n2); error
         getData2(n2);
         getUpperNumberData(n1);
         getUpperNumberData(n2); // the Subclasses of Number are AtomicInteger, AtomicLong, BigDecimal, BigInteger, Byte, Double, DoubleAccumulator, DoubleAdder, Float, Integer, Long, LongAccumulator, LongAdder, Short
-
-
     }
 
     public static void getData(Node<Number> node) {
