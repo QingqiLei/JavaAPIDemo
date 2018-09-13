@@ -15,6 +15,7 @@ public class PropertiesD {
         p.put("app.version", version);
         p.put("db.username", username);
         p.put("db.password", password);
+
         System.out.println("deleteIfExists: " + Files.deleteIfExists(Paths.get("API/src/container/properties/", username + ".properties")));
         System.out.println("createFile: " + Files.createFile(Paths.get("API/src/container/properties/", username + ".properties")));
 
@@ -33,7 +34,9 @@ public class PropertiesD {
     }
 
     public static void main(String[] args) throws IOException {
-        writeConfig("2", "admin", "234");
-        readConfig("admin");
+//        writeConfig("3", "admin", "234");
+//        readConfig("admin");
+        File file = new File("API/src/container/properties/admin.properties");
+        System.out.println(file.exists());
     }
 }
