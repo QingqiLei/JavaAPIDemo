@@ -106,6 +106,7 @@ public class GuavaD {
         System.out.println("addAll: " + s3);
     }
 
+    // set's element can be repeatable
     @Test
     public void repeatableSet() {
         String s = "good good study day day up";
@@ -122,6 +123,7 @@ public class GuavaD {
         }
     }
 
+    // value can be repeatable
     @Test
     public void multimap() {
         Map<String, String> map = new HashMap<>();
@@ -142,8 +144,30 @@ public class GuavaD {
             System.out.println(key + ": " + mmap.get(key));
         }
     }
+
+    // key and value can not repeat
     @Test
-    public void BiMap(){
-        
+    public void BiMap() {
+        BiMap<String, String> map = HashBiMap.create();
+        map.put("finally_test", "18800208234");
+        map.put("bin", "18800208456");
+        map.put("sam", "18888888888");
+        System.out.println(map.inverse().get("18800208456"));
+        System.out.println(map.get("bin"));
+    }
+
+    // double key map
+    @Test
+    public void HashBasedTable() {
+        Table<String, String, Integer> table = HashBasedTable.create();
+        table.put("Jack", "java", 80);
+        table.put("tom", "php", 90);
+        table.put("lily", "php", 70);
+        table.put("bin", "ui", 60);
+        Set<Table.Cell<String, String, Integer>> cells = table.cellSet();
+        for (Table.Cell c : cells) {
+            System.out.println(c.getRowKey() + "-" + c.getColumnKey() + "-" + c.getValue());
+        }
+
     }
 }
