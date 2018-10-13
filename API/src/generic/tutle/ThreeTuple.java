@@ -20,5 +20,7 @@ public class ThreeTuple<A, B, C> extends TwoTuple {
     public static void main(String[] args) {
         ThreeTuple<Integer, Integer, Integer> t = new ThreeTuple<>(1, 2, 3);
         System.out.println(t.first);
+        var javastack = "dfdf";
+        System.out.println(javastack.getClass());
     }
 }
