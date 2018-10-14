@@ -1,4 +1,4 @@
-package generic.genericenum;
+package enumeration.color;
 
 public enum Watercolors {
     ZINC, LEMON_YELLOW, MEDIUM_YELLOW, DEEP_YELLOW, ORANGE,
