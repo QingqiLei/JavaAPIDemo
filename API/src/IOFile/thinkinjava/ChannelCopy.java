@@ -17,9 +17,11 @@ public class ChannelCopy {
                 out = new FileOutputStream(args[1]).getChannel();
         ByteBuffer buffer = ByteBuffer.allocate(BSIZE);
         while(in.read(buffer) != -1){
-            buffer.flip();
-            out.write(buffer);
-            buffer.clear();
+//            buffer.flip();
+//            out.write(buffer);
+//            buffer.clear();
+
+            in.transferFrom(in,0,in.size());
         }
     }
 }
