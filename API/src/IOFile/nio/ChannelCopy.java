@@ -1,4 +1,4 @@
-package IOFile.thinkinjava;
+package IOFile.nio;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
