@@ -1,4 +1,4 @@
-package IOFile;
+package IOFile.nio;
 
 import java.io.*;
 import java.nio.ByteBuffer;
@@ -7,6 +7,7 @@ import java.nio.channels.FileChannel;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+
 
 public class ChannelD {
     public static void main(String[] args) throws Exception {
